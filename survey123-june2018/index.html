@@ -1,49 +1,138 @@
 <!doctype html>
-<html>
+<html lang="en">
+
 	<head>
 		<meta charset="utf-8">
+
+		<title>WAB tips and tricks</title>
+
+		<meta name="description" content="Presentation on authentication in ArcGIS Online at the 2015 Esri Dev Summit.">
+		<meta name="author" content="Patrick Arlt">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/esri.css" id="theme">
 
-		<link rel="stylesheet" href="../css/reveal.css">
-		<link rel="stylesheet" href="../css/theme/black.css">
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
 	</head>
+
 	<body>
+		<a href="https://github.com/chen7012/UC-2016-Tips-Trikcs-WAB"><img style="z-index: 1000; position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+
 		<div class="reveal">
+
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+
+				<section class="left">
+					<h3>Tips and tricks for extending</h3><h3> Web AppBuilder for ArcGIS</h3>
+					<h5>Erwin Soekianto - SDK Support</h5>
+					<h5>Chen Li - SDK Support</h5>
+				</section>
+
+				<section>
+					<h2>Overview</h2>
+					<p>Web AppBuilder for ArcGIS is built with ArcGIS API for JavaScript and Dojo. It allows you to customize and extend functionalities by creating your own widgets and themes.</p>		
+				</section>
+
+				<section class="center-slide">
+					<h1>Demo Time!</h1>
+					<P>Installation</P>
+					
+				</section>
+
+				<section class="center-slide">
+					<h2>Widgets</h2>
+					<p>Two types of widgets are supported: an off-panel widget (such as Scalebar widget) and an in-panel widget (such as Query widget). </p>
+				</section>
+
+				<section class="center-slide">
+					<h1>Demo Time!</h1>
+					<p>Create a custom in-panel widget</p>
+					<!-- <p>https://developers.arcgis.com/web-appbuilder/sample-code/create-custom-in-panel-widget.htm</p> -->
+				</section>
+
+				<section class="center-slide">
+					<h2>Review</h2>
+					<ol>
+						<li>config.json<br/><p1 style="font-style:italic;">Add widget json object into the Widget Pool.</p1></li>
+						<li>manifest.json<br/><p1 style="font-style:italic;">Change name preperty to match the widget folder name.</p1></li>
+						<li>string.js<br/><p1 style="font-style:italic;">Change the widget label.</p1></li>
+						<li>widget.html<br/><p1 style="font-style:italic;">Add the interface html elements.</p1></li>
+						<li>widget.js<br/><p1 style="font-style:italic;">Add the script code. </p1></li>
+					</ol>
+					<!-- <p>https://developers.arcgis.com/web-appbuilder/sample-code/create-custom-in-panel-widget.htm</p> -->
+				</section>
+
+				<!-- <section class="center-slide">
+					<h2>Themes</h2>
+					<p>An ArcGIS Web AppBuilder theme is a collection of user interface elements that define an app's look-and-feel, layout, app navigation, and on screen functional UI items such as scale bar, overview map, and so on. </p>
+				</section>
+
+				<section class="center-slide">
+					<h1>Demo Time!</h1>
+					<p>Customize Foldable theme</p>
+					<p>https://developers.arcgis.com/web-appbuilder/sample-code/create-a-style-for-a-theme.htm#ESRI_SECTION1_882C49F3F58A4484AB5A417DA4D4FC51</p>
+				</section>-->
+				<section>
+					<h1>Thanks!</h1>
+					<div class="center-text">
+						<img src="esri-logo.png" alt="Esri" width="280" height="118" >
+					</div>
+				</section>
+
 		</div>
 
-		<script src="../lib/js/head.min.js"></script>
-		<script src="../js/reveal.js"></script>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
 
 		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+ 				// Factor of the display size that should remain empty around the content
+    		margin: 0.1,
+
+    		// Bounds for smallest/largest possible scale to apply to content
+		    minScale: 1.0,
+		    maxScale: 1.0,
+
+				theme: 'esri', // available themes are in /css/theme
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'background.jpg',
+				// parallaxBackgroundSize: '2193px 1334px',
+
+				// Optional libraries used to extend on reveal.js
 				dependencies: [
-					{ src: '../plugin/markdown/marked.js' },
-					{ src: '../plugin/markdown/markdown.js' },
-					{ src: '../plugin/notes/notes.js', async: true },
-					{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
 		</script>
+
 	</body>
 </html>
